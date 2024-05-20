@@ -25,9 +25,28 @@
             width: 100%;
             height: 100%;
         }
+        /* CSS to overlay the built with Spline tag with a colored layer */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #342642; /* Your desired background color */
+            z-index: 9999; /* Ensure the overlay is on top of other content */
+        }
+        
+        /* Hide the scrollbar */
+        body {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
+    <!-- Your existing iframe -->
     <iframe class="spline-embed" src="https://my.spline.design/macbookprocopy-f9f430c901e32f74e738acbbc893bd36/" frameborder="0"></iframe>
+
+    <!-- Overlay to cover up the "Built with Spline" tag -->
+    <div class="overlay"></div>
 </body>
 </html>
