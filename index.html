@@ -26,17 +26,8 @@
             width: 100%;
             height: 100%;
         }
-        /* CSS to overlay the built with Spline tag with a colored layer */
-        .overlay-desktop {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 12.5%; /* Half of its original size */
-            height: 12.5%; /* Half of its original size */
-            background-color: #342642; /* Your desired background color */
-            z-index: 9999; /* Ensure the overlay is on top of other content */
-        }
 
+        /* CSS to overlay the built with Spline tag with a colored layer */
         .overlay-mobile {
             position: fixed;
             bottom: 0;
@@ -52,23 +43,22 @@
             overflow: hidden;
         }
 
-        /* Media query for desktop */
-        @media screen and (max-width: 768px) {
-            .overlay-desktop {
-                display: block;
-            }
+        /* Media query for phones in portrait orientation */
+        @media only screen 
+        and (max-device-width: 480px) 
+        and (orientation: portrait) {
             .overlay-mobile {
-                display: none;
+                display: block;
             }
         }
 
-        /* Media query for mobile */
-        @media screen and (max-width: 480px) {
-            .overlay-desktop {
-                display: none;
-            }
+        /* Hide overlay for other screen sizes or orientations */
+        @media only screen 
+        and (min-device-width: 481px),
+        only screen 
+        and (orientation: landscape) {
             .overlay-mobile {
-                display: block;
+                display: none;
             }
         }
     </style>
@@ -77,10 +67,7 @@
     <!-- Your existing iframe -->
     <iframe class="spline-embed" src="https://my.spline.design/macbookprocopy-f9f430c901e32f74e738acbbc893bd36/" frameborder="0"></iframe>
 
-    <!-- Overlay to cover up the "Built with Spline" tag on desktop -->
-    <div class="overlay-desktop"></div>
-
-    <!-- Overlay to cover up the "Built with Spline" tag on mobile -->
+    <!-- Overlay to cover up the "Built with Spline" tag on mobile in portrait orientation -->
     <div class="overlay-mobile"></div>
 </body>
 </html>
